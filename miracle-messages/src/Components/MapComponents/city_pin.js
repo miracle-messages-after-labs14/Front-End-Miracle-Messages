@@ -18,18 +18,6 @@ class CityPin extends PureComponent {
     const PinClickHandler = () => {
       this.props.updatePopupAction(this.props.city);
       this.props.slideToggleAction();
-
-      const viewport = new WebMercatorViewport({
-        latitude: this.props.city.latitude,
-        longitude: this.props.city.longitude,
-        zoom: 10,
-        transitionInterpolator: new LinearInterpolator({
-          around: [this.props.city.latitude, this.props.city.longitude]
-        }),
-        transitionDuration: 1000
-      });
-
-      this.props.onViewportChanged(viewport);
     };
     const size = 28;
 
