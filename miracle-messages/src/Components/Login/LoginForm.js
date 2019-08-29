@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (      
-        <Container className="LoginForm">
+        <Container className="LoginForm" >
           <header>
           <div className="navbar">
             <a href="https://miracle-messages-staging.netlify.com"><img src={logo} alt="logo" /></a>

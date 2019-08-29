@@ -1,12 +1,15 @@
-.container{
-  margin: 0;
+/* .container{
+  margin: 0 auto;
   padding: 0;
   width: 100vw;
   text-align: center;
   height: 100vh;
+} */
+.navbar{
+  background-color: transparent;
 }
 
-.login_form{
+/* .login_form{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -20,9 +23,9 @@
     line-height: 22px;
     text-align: left;
     
-}
+} */
 
-.input{
+/* .input{
     margin-top: 30px;
     width: 500px;
     height: 60px;
@@ -39,4 +42,4 @@
 .submitb {
     margin-top: 30px;
     border-radius: 5px;
-}
+} */
