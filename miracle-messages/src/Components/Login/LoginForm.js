@@ -38,18 +38,6 @@ class LoginForm extends React.Component {
   render() {
     return (      
         <Container className="LoginForm" >
-          <header>
-          <div className="navbar">
-            <a href="https://miracle-messages-staging.netlify.com"><img src={logo} alt="logo" /></a>
-          </div>
-          <div className="backImg">
-            <div className="overlay">
-              <div className="backImg">
-                <div className="filter" />
-              </div>
-            </div>
-          </div> 
-        </header>
         <h2>Sign In</h2>
         <Form className="form" onSubmit={this.handleSubmit}>
           <Col>

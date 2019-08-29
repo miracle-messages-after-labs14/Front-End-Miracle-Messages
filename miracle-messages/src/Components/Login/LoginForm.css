@@ -5,8 +5,13 @@
   text-align: center;
   height: 100vh;
 } */
-.navbar{
+.LoginForm{
   background-color: transparent;
+  margin-top: 10%;
+  
+  border: 2px solid #a7a5a5;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px 10px #a7a5a5;
 }
 
 /* .login_form{
