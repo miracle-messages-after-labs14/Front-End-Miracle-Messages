@@ -1,13 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-// import WebMercatorViewport from 'viewport-mercator-project';
-// import { LinearInterpolator } from 'react-map-gl';
-
 // Action imports
-import { updatePopupAction } from '../../Actions/updatePopupAction';
 import { slideToggleAction } from '../../Actions/SlideToggleAction';
-import { onViewportChanged } from '../../Actions/OnViewportAction';
+import { updateSlideAction } from '../../Actions/MapActions'
 
 const pinStyle = {
   fill: 'black'
@@ -16,20 +12,8 @@ const pinStyle = {
 class CityPin extends PureComponent {
   render() {
     const PinClickHandler = () => {
-      this.props.updatePopupAction(this.props.city);
+      this.props.updateSlideAction(this.props.city);
       this.props.slideToggleAction();
-
-      // const viewport = new WebMercatorViewport({
-      //   latitude: this.props.city.latitude,
-      //   longitude: this.props.city.longitude,
-      //   zoom: 10,
-      //   transitionInterpolator: new LinearInterpolator({
-      //     around: [this.props.city.latitude, this.props.city.longitude]
-      //   }),
-      //   transitionDuration: 1000
-      // });
-
-      // this.props.onViewportChanged(viewport);
     };
     const size = 28;
 
@@ -66,11 +50,12 @@ class CityPin extends PureComponent {
 
 const mapStateToProps = state => {
   return {
-    popupInfo: state.mapReducer.popupInfo
+    popupInfo: state.mapReducer.popupInfo,
+    slideInfo: state.mapReducer.slideInfo
   };
 };
 
 export default connect(
   mapStateToProps,
-  { updatePopupAction, slideToggleAction, onViewportChanged }
+  { slideToggleAction, updateSlideAction }
 )(CityPin);

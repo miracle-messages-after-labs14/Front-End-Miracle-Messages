@@ -1,9 +1,4 @@
 import React, { PureComponent } from "react";
-import { connect } from "react-redux";
-
-// Action imports
-import { slideToggleAction } from "../../Actions/SlideToggleAction";
-import { updatePopupAction } from "../../Actions/updatePopupAction";
 
 // Icon imports
 // import facebook from "../../icons/facebook.png";
@@ -182,13 +177,4 @@ class CityInfo extends PureComponent {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    learnMore: state.mapReducer.learnMore
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  { slideToggleAction, updatePopupAction }
-)(CityInfo);
+export default CityInfo;

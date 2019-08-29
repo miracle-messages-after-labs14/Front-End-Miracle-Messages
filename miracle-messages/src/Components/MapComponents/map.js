@@ -11,9 +11,8 @@ import CityInfo from './city_info';
 
 // Action imports
 import { getData } from '../../Actions/index';
-import { updatePopupAction } from '../../Actions/updatePopupAction';
 import { slideToggleAction } from '../../Actions/SlideToggleAction';
-import { onViewportChanged } from '../../Actions/OnViewportAction';
+import { updateSlideAction, onViewportChanged } from '../../Actions/MapActions';
 
 // Material UI imports
 import Drawer from '@material-ui/core/Drawer';
@@ -67,7 +66,7 @@ class Map extends Component {
   };
 
   closeHandler = () => {
-    this.props.updatePopupAction(null);
+    this.props.updateSlideAction(null);
     this.props.slideToggleAction();
   };
 
@@ -78,8 +77,9 @@ class Map extends Component {
   //_renderSlide replaces _renderPopup, is opened when citypin is clicked
   _renderSlide() {
     const popupInfo = this.props.popupInfo;
+    const slideInfo = this.props.slideInfo;
     return (
-      popupInfo && (
+      slideInfo && (
         <div className='chapterDrawer'>
           {/* clicking city pin opens the drawer below */}
           <Drawer
@@ -103,7 +103,7 @@ class Map extends Component {
               <Cancel style={{ position: 'absolute', right: '0' }} />
             </IconButton>
             <Scrollbars style={{ width: 376 }} autoHide={true}>
-              <CityInfo info={popupInfo} />
+              <CityInfo info={slideInfo} />
             </Scrollbars>
           </Drawer>
         </div>
@@ -152,7 +152,7 @@ const mapStateToProps = state => {
   return {
     chapter_data: state.mapReducer.chapter_data,
     fetching: state.mapReducer.fetching,
-    popupInfo: state.mapReducer.popupInfo,
+    slideInfo: state.mapReducer.slideInfo,
     openDrawer: state.mapReducer.openDrawer,
     viewport: state.mapReducer.viewport
   };
@@ -161,5 +161,5 @@ const mapStateToProps = state => {
 //this is how we connect the map.js component to the store
 export default connect(
   mapStateToProps,
-  { getData, updatePopupAction, slideToggleAction, onViewportChanged }
+  { getData, slideToggleAction, onViewportChanged, updateSlideAction }
 )(Map);
