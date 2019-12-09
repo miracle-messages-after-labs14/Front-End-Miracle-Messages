@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const ADD_VOLUNTEER_START = 'ADD_VOLUNTEER_START';
-export const ADD_VOLUNTEER_SUCCESS = 'ADD_VOLUNTEER_SUCCESS';
-export const ADD_VOLUNTEER_FAIL = 'ADD_VOLUNTEER_FAIL';
+export const ADD_VOLUNTEER_START = "ADD_VOLUNTEER_START";
+export const ADD_VOLUNTEER_SUCCESS = "ADD_VOLUNTEER_SUCCESS";
+export const ADD_VOLUNTEER_FAIL = "ADD_VOLUNTEER_FAIL";
 
 export const addVolunteers = volunteer => async dispatch => {
   dispatch({
@@ -10,10 +10,7 @@ export const addVolunteers = volunteer => async dispatch => {
   });
 
   axios
-    .post(
-      'https://miracle-messages-production.herokuapp.com/api/form',
-      volunteer
-    )
+    .post("https://miracle-messages-staging2.herokuapp.com/api/form", volunteer)
     .then(res => {
       return dispatch({
         type: ADD_VOLUNTEER_SUCCESS
